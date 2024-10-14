@@ -1,4 +1,4 @@
-import { NotepadText } from "lucide-react";
+import { Split } from "lucide-react";
 import { NodeBase } from "../NodeBase";
 
 export const SplitText = ({ id, data }) => {
@@ -20,7 +20,7 @@ export const SplitText = ({ id, data }) => {
     <NodeBase
       id={id}
       data={data}
-      icon={NotepadText}
+      icon={Split}
       title="Split Text"
       fields={fields}
       handles={handles}

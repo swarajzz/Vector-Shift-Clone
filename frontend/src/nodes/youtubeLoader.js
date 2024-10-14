@@ -1,4 +1,4 @@
-import { NotepadText } from "lucide-react";
+import { Youtube } from "lucide-react";
 import { NodeBase } from "../NodeBase";
 
 export const YoutubeLoader = ({ id, data }) => {
@@ -20,7 +20,7 @@ export const YoutubeLoader = ({ id, data }) => {
     <NodeBase
       id={id}
       data={data}
-      icon={NotepadText}
+      icon={Youtube}
       title="Youtube Loader"
       infos={infos}
       fields={fields}

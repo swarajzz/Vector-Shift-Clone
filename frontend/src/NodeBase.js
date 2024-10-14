@@ -8,6 +8,7 @@ export const NodeBase = memo(
   ({ id, data, title, icon: Icon, fields, handles, infos }) => {
     const [state, setState] = useState(data);
     const [variables, setVariables] = useState([]);
+
     const handleChange = useCallback((field, value) => {
       setState((prevState) => ({
         ...prevState,

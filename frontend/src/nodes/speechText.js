@@ -1,4 +1,4 @@
-import { NotepadText } from "lucide-react";
+import { Mic } from "lucide-react";
 import { NodeBase } from "../NodeBase";
 
 export const SpeechText = ({ id, data }) => {
@@ -20,7 +20,7 @@ export const SpeechText = ({ id, data }) => {
     <NodeBase
       id={id}
       data={data}
-      icon={NotepadText}
+      icon={Mic}
       title="Speech to Text"
       fields={fields}
       handles={handles}

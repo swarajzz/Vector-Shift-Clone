@@ -1,5 +1,5 @@
 // textNode.js
-import { NotepadText } from "lucide-react";
+import { NotebookText } from "lucide-react";
 import { NodeBase } from "../NodeBase";
 
 export const Summarizer = ({ id, data }) => {
@@ -13,7 +13,7 @@ export const Summarizer = ({ id, data }) => {
     <NodeBase
       id={id}
       data={data}
-      icon={NotepadText}
+      icon={NotebookText}
       title="Summarizer"
       fields={fields}
       handles={handles}
