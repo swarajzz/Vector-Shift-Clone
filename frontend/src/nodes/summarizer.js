@@ -2,7 +2,7 @@
 import { NotepadText } from "lucide-react";
 import { NodeBase } from "../NodeBase";
 
-export const TextNode = ({ id, data }) => {
+export const Summarizer = ({ id, data }) => {
   const fields = [
     { name: "text", label: "Text", type: "text", textArea: true },
   ];
@@ -14,7 +14,7 @@ export const TextNode = ({ id, data }) => {
       id={id}
       data={data}
       icon={NotepadText}
-      title="Text"
+      title="Summarizer"
       fields={fields}
       handles={handles}
     />

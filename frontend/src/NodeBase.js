@@ -4,7 +4,7 @@ import { CircleX } from "lucide-react";
 import TextareaAutosize from "react-textarea-autosize";
 
 export const NodeBase = memo(
-  ({ id, data, type, icon: Icon, fields, handles }) => {
+  ({ id, data, title, icon: Icon, fields, handles, infos }) => {
     const [state, setState] = useState(data);
     const [variables, setVariables] = useState([]);
     const handleChange = useCallback((field, value) => {
@@ -36,7 +36,7 @@ export const NodeBase = memo(
         <div className="mb-2 flex items-center justify-between px-2 text-sm font-semibold text-gray-700">
           <div className="flex items-center justify-center gap-2 text-[#5d7f9e] group-hover:text-[#6563e4]">
             {Icon && <Icon width={18} height={18} />}
-            <span>{type}</span>
+            <span>{title}</span>
           </div>
           <div>
             <CircleX
@@ -62,10 +62,10 @@ export const NodeBase = memo(
                 <>
                   <div>{field.label}</div>
 
-                  {field.type === "text" ? (
+                  {field.type === "text" || field.type === "number" ? (
                     <input
-                      className="focus:shadow-[0_0_0_2px #6366F1] p-1 rounded-md border border-[#d9d8dd] text-[#313745] transition hover:border-[#f1f1fe] hover:bg-[#fafaff] focus:bg-transparent focus:outline-none group-hover:text-[#6563e4] min-w-44"
-                      type="text"
+                      className="focus:shadow-[0_0_0_2px #6366F1] p-1 rounded-md border border-[#d9d8dd] text-[#313745] transition hover:border-[#f1f1fe] hover:bg-[#fafaff] focus:bg-transparent focus:outline-none group-hover:text-[#6563e4] min-w-44 w-full"
+                      type={field.type}
                       onChange={(e) => handleChange(field.name, e.target.value)}
                     />
                   ) : field.type === "select" ? (
@@ -87,6 +87,16 @@ export const NodeBase = memo(
             </div>
           ))}
         </div>
+
+        {infos?.length > 0 && (
+          <div className="mt-4 border-t pt-2 text-sm text-gray-500">
+            {infos.map((info, index) => (
+              <div key={index} className="px-4">
+                {info.value}
+              </div>
+            ))}
+          </div>
+        )}
 
         {handles.map((handle) => (
           <Handle
@@ -114,9 +124,7 @@ export const NodeBase = memo(
               position={Position.Left}
               id={`${id}-variable-${variable}`}
             />
-            <span
-            className="ml-4 transition text-[#5d7f9e] group-hover:text-[#6563e4]"
-            >
+            <span className="ml-4 transition text-[#5d7f9e] group-hover:text-[#6563e4]">
               {variable}
             </span>
           </div>

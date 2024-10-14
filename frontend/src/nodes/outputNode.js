@@ -1,4 +1,5 @@
 // outputNode.js
+import { FileOutput } from "lucide-react";
 import { NodeBase } from "../NodeBase";
 
 export const OutputNode = ({ id, data }) => {
@@ -12,13 +13,14 @@ export const OutputNode = ({ id, data }) => {
     },
   ];
 
-  const handles = [{ id: "value", type: "source", position: "left" }];
+  const handles = [{ id: "value", type: "target", position: "left" }];
 
   return (
     <NodeBase
       id={id}
       data={data}
-      type="Output"
+      icon={FileOutput}
+      title="Output"
       fields={fields}
       handles={handles}
     />

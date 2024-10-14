@@ -19,7 +19,7 @@ export const InputNode = ({ id, data }) => {
     <NodeBase
       id={id}
       data={data}
-      type="Input"
+      title="Input"
       icon={FileInput}
       fields={fields}
       handles={handles}

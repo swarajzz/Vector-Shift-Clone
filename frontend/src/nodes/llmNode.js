@@ -1,8 +1,13 @@
 // llmNode.js
+import { BrainCircuit } from "lucide-react";
 import { NodeBase } from "../NodeBase";
 
 export const LLMNode = ({ id, data }) => {
-  const fields = [];
+  // const fields = [];
+  const fields = [
+    { name: "system", label: "System", type: "text" },
+    { name: "prompt", label: "Prompt", type: "text" },
+  ];
 
   const handles = [
     {
@@ -24,7 +29,8 @@ export const LLMNode = ({ id, data }) => {
     <NodeBase
       id={id}
       data={data}
-      type="LLM"
+      icon={BrainCircuit}
+      title="LLM"
       fields={fields}
       handles={handles}
     />
