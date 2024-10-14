@@ -10,6 +10,12 @@ import { InputNode } from './nodes/inputNode';
 import { LLMNode } from './nodes/llmNode';
 import { OutputNode } from './nodes/outputNode';
 import { TextNode } from './nodes/textNode';
+import { YoutubeLoader } from "./nodes/youtubeLoader";
+import { SpeechText } from "./nodes/speechText";
+import { SplitText } from "./nodes/splitText";
+import { Summarizer } from "./nodes/summarizer";
+import { MathNode } from "./nodes/mathNode";
+
 
 import 'reactflow/dist/style.css';
 
@@ -20,6 +26,11 @@ const nodeTypes = {
   llm: LLMNode,
   customOutput: OutputNode,
   text: TextNode,
+  math: MathNode,
+  youtubeLoader: YoutubeLoader,
+  speechText: SpeechText,
+  splitText: SplitText,
+  summarizer: Summarizer
 };
 
 const selector = (state) => ({
