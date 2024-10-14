@@ -2,6 +2,7 @@ import { Handle, Position } from "reactflow";
 import { memo, useCallback, useState } from "react";
 import { CircleX } from "lucide-react";
 import TextareaAutosize from "react-textarea-autosize";
+import { useStore } from "./store";
 
 export const NodeBase = memo(
   ({ id, data, title, icon: Icon, fields, handles, infos }) => {
@@ -18,6 +19,8 @@ export const NodeBase = memo(
         setVariables(foundVariables);
       }
     }, []);
+
+    const removeNode = useStore((state) => state.removeNode);
 
     const extractVariables = (input) => {
       const regex = /\{\{([^}]+)\}\}/g;
@@ -43,6 +46,7 @@ export const NodeBase = memo(
               width={16}
               height={18}
               className="mx-0 cursor-pointer transition hover:text-red-500"
+              onClick={() => removeNode(id)}
             />
           </div>
         </div>

@@ -32,7 +32,7 @@ export const SubmitButton = () => {
       const data = await response.json();
       console.log(data);
       alert(`
-        Pipeline Analysis Result:
+        Pipeline Created 🥳:
         ----------------------------
         Number of Nodes: ${data.num_nodes}
         Number of Edges: ${data.num_edges}
