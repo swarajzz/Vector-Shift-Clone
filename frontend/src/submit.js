@@ -24,7 +24,6 @@ export const SubmitButton = () => {
         },
         body: JSON.stringify(pipelineData),
       });
-      console.log(response)
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -39,12 +38,18 @@ export const SubmitButton = () => {
         Number of Edges: ${data.num_edges}
         Is Directed Acyclic Graph (DAG): ${data.is_dag ? "Yes" : "No"}
       `);
-
     } catch (error) {
       console.error("Error submitting pipeline:", error);
       alert("Failed to submit the pipeline.");
     }
   };
 
-  return <button onClick={handleSubmit}>Submit Pipeline</button>;
+  return (
+    <button
+      className="fixed bottom-4 right-4 px-6 py-2 text-[#FAFAFF] font-semibold bg-[#6366F1] border-[#6366F1] rounded-md shadow-lg hover:bg-[#4F4FE5] transition-colors duration-300 ease-in-out"
+      onClick={handleSubmit}
+    >
+      Submit Pipeline
+    </button>
+  );
 };
