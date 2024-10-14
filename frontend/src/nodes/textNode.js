@@ -2,7 +2,9 @@
 import { NodeBase } from "../NodeBase";
 
 export const TextNode = ({ id, data }) => {
-  const fields = [{ name: "text", label: "Text", type: "text" }];
+  const fields = [
+    { name: "text", label: "Text", type: "text", textArea: true },
+  ];
 
   const handles = [{ id: "output", type: "source", position: "right" }];
 
