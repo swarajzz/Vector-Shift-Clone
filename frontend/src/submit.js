@@ -8,7 +8,6 @@ const selector = (state) => ({
 
 export const SubmitButton = () => {
   const { nodes, edges } = useStore(selector);
-  console.log(nodes, edges);
 
   const handleSubmit = async () => {
     try {
@@ -17,7 +16,7 @@ export const SubmitButton = () => {
         edges,
       };
 
-      const response = await fetch("http://localhost:8000/pipelines/parse", {
+      const response = await fetch("https://vector-shift-huej.onrender.com/pipelines/parse", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -30,7 +29,6 @@ export const SubmitButton = () => {
       }
 
       const data = await response.json();
-      console.log(data);
       alert(`
         Pipeline Created 🥳:
         ----------------------------

@@ -1,5 +1,5 @@
 import { Handle, Position } from "reactflow";
-import { memo, useCallback, useState } from "react";
+import { memo, useState } from "react";
 import { CircleX } from "lucide-react";
 import TextareaAutosize from "react-textarea-autosize";
 import { useStore } from "./store";
@@ -9,7 +9,8 @@ export const NodeBase = memo(
     const [state, setState] = useState(data);
     const [variables, setVariables] = useState([]);
     
-    const handleChange = useCallback((field, value) => {
+    
+    const handleChange = (field, value) => {
       setState((prevState) => ({
         ...prevState,
         [field]: value,
@@ -19,7 +20,7 @@ export const NodeBase = memo(
         const foundVariables = extractVariables(value);
         setVariables(foundVariables);
       }
-    }, []);
+    };
 
     const removeNode = useStore((state) => state.removeNode);
 
@@ -34,6 +35,7 @@ export const NodeBase = memo(
 
       return Array.from(matches);
     };
+
 
     return (
       <div className="border border-gray-400 group rounded-md bg-white py-2 shadow-purple transition-all hover:border-[#a9a8f7] hover:shadow-purple-2">
@@ -113,15 +115,6 @@ export const NodeBase = memo(
           />
         ))}
 
-        {/* {variables.map((variable, index) => (
-          <Handle
-            key={variable}
-            type="target"
-            position={Position.Left}
-            id={`${id}-variable-${variable}`}
-            style={{ top: 50 + index * 20 }}
-          />
-        ))} */}
         {variables.map((variable, index) => (
           <div key={variable} className="relative flex items-center">
             <Handle
